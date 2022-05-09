@@ -44,5 +44,4 @@ app.listen(4444, '127.0.0.1')
     .then((address) => console.log(`Server listening on ${address}`))
     .catch((err) => {
         console.error(err);
-        process.exit(1);
     });
