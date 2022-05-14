@@ -10,7 +10,8 @@ const app = Fastify();
 
 dotenv.config();
 
-app.get('/:search', async (req) => {
+app.get('/:search/:page', async (req) => {
+    //jank way to do this, but I don't want to figure out how querystring works
     const results = [];
     let code;
     const query = req.params.search;
@@ -20,8 +21,9 @@ app.get('/:search', async (req) => {
             message: 'No search query provided',
         };
     }
+    const page = parseInt(req.params.page) * 10;
     await fetch(
-        `https://customsearch.googleapis.com/customsearch/v1?gl=us&hl=en&q=${query}&key=${process.env.GOOGLE_API_KEY}&cx=d96ce355f233aa872`,
+        `https://customsearch.googleapis.com/customsearch/v1?gl=us&hl=en&q=${query}&key=${process.env.GOOGLE_API_KEY}&cx=d96ce355f233aa872&start=${page}`,
     )
         .then((response) => response.json())
         .then((data) => {
@@ -40,7 +42,7 @@ app.get('/:search', async (req) => {
     };
 });
 
-app.listen(4444, '127.0.0.1')
+app.listen(3000, '127.0.0.1')
     .then((address) => console.log(`Server listening on ${address}`))
     .catch((err) => {
         console.error(err);
