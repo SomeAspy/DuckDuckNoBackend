@@ -42,7 +42,7 @@ app.get('/:search/:page', async (req) => {
     };
 });
 
-app.listen(3000, '127.0.0.1')
+app.listen(4444, '127.0.0.1')
     .then((address) => console.log(`Server listening on ${address}`))
     .catch((err) => {
         console.error(err);
