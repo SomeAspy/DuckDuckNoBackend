@@ -27,7 +27,6 @@ app.get('/:search/:page', async (req) => {
     )
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             data.items.forEach((item) => {
                 results.push({
                     title: item.title,
