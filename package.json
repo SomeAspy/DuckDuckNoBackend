@@ -1,17 +1,18 @@
 {
     "type": "module",
-    "name": "DuckDuckNoBackend",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node dist/index.js",
+        "lint": "eslint src",
+        "dev": "tsx src/index.ts"
     },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
     "dependencies": {
-        "dotenv": "^16.0.3",
-        "fastify": "^3.29.3"
+        "fastify": "^4.22.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.5.7",
+        "@typescript-eslint/eslint-plugin": "^6.5.0",
+        "@typescript-eslint/parser": "^6.5.0",
+        "eslint": "^8.48.0",
+        "typescript": "^5.2.2"
     }
 }
