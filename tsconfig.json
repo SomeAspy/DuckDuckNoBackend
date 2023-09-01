@@ -33,6 +33,7 @@
         ],
         "lib": [
             "ESNext",
+            "DOM"
         ],
     },
     "include": [

@@ -1,0 +1,39 @@
+name: Lint
+
+on:
+    push:
+        branches:
+            - '*'
+    pull_request:
+        branches:
+            - '*'
+
+jobs:
+    run-linters:
+        name: Run linters
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check out Git repository
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: latest
+
+            - name: Add Rasbian Package Repositories
+              run: echo deb http://archive.raspberrypi.org/debian/ bullseye main | sudo tee /etc/apt/sources.list.d/raspberrypi.list && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7FA3303E
+
+            - name: Install PiGPIO
+              run: sudo apt-get update && sudo apt-get install -y pigpio
+
+            - name: Install Node.js dependencies
+              run: pnpm install
+
+            - name: Run linters
+              run: pnpm run lint

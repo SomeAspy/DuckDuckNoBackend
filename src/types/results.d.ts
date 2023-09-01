@@ -1,14 +1,10 @@
 // The google CSE response is significantly more complex than this but we will only type the stuff we actually want to use
 
-export interface TopLevelResponse {
-    searchInformation: {
-        totalResults: string;
-        formattedTotalResults: string;
-    };
+export type ApiResponse = {
     items: Result[];
-}
+};
 
-export interface Result {
+export type Result = {
     kind: string;
     title: string;
     htmlTitle: string;
@@ -18,4 +14,9 @@ export interface Result {
     htmlSnippet: string;
     formattedUrl: string;
     htmlFormattedUrl: string;
-}
+};
+
+export type DDNResult = {
+    code: number;
+    results: Result[];
+};
