@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 import type { StdQuery } from './types/query.js';
-import untypedKeys from '../keys.json';
+import untypedKeys from '../keys.json' assert { type: 'json' };
 import type { Keys } from './types/keys.js';
 import type { DDNResult, Result } from './types/results.js';
 const keys = untypedKeys as Keys;
