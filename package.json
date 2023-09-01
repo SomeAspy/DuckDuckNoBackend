@@ -6,7 +6,7 @@
         "dev": "tsx src/index.ts"
     },
     "dependencies": {
-        "fastify": "^4.22.0"
+        "fastify": "^4.22.1"
     },
     "devDependencies": {
         "@types/node": "^20.5.7",
