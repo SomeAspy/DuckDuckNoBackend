@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 import type { StdQuery } from './types/query.js';
-import untypedKeys from '../key.json';
+import untypedKeys from '../keys.json';
 import type { Keys } from './types/keys.js';
 import type { DDNResult, Result } from './types/results.js';
 const keys = untypedKeys as Keys;
@@ -28,10 +28,11 @@ api.route({
         if (Number.isNaN(query.p)) query.p = 0;
 
         if (searchResults.code === 400) {
-            return reply.send({
+            reply.send({
                 code: 400,
                 message: 'Invalid query data.',
             });
+            return;
         }
 
         const url = encodeURI(
@@ -52,11 +53,33 @@ api.route({
             },
         })
             .then((response) => response.json())
-            .then((data) =>
+            .then((data) => {
+                if (data.error) {
+                    console.error(data.error);
+                    reply.send({
+                        code: 500,
+                        message: `Upstream Error: GoogleApis returned code "${data.error.code}" with message: "${data.error.message}" Please open an issue at https://github.com/SomeAspy/DuckDuckNoBackend/issues/new`,
+                    });
+                    return;
+                }
                 data.items.forEach((item: Result) => {
-                    console.log(item);
-                }),
-            );
+                    searchResults.results.push({
+                        kind: item.kind,
+                        title: item.title,
+                        htmlTitle: item.htmlTitle,
+                        link: item.link,
+                        displayLink: item.displayLink,
+                        snippet: item.snippet,
+                        htmlSnippet: item.formattedUrl,
+                        formattedUrl: item.formattedUrl,
+                        htmlFormattedUrl: item.htmlFormattedUrl,
+                    });
+                });
+                reply.send({
+                    code: 200,
+                    data: searchResults.results,
+                });
+            });
     },
 });
 
