@@ -7,7 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "fastify": "^4.22.2"
+        "fastify": "^4.23.0"
     },
     "devDependencies": {
         "@types/node": "^20.6.0",
