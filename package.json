@@ -7,13 +7,13 @@
         "build": "tsc"
     },
     "dependencies": {
-        "fastify": "^4.23.2"
+        "fastify": "^4.24.3"
     },
     "devDependencies": {
-        "@types/node": "^20.8.2",
-        "@typescript-eslint/eslint-plugin": "^6.7.4",
-        "@typescript-eslint/parser": "^6.7.4",
-        "eslint": "^8.50.0",
+        "@types/node": "^20.8.7",
+        "@typescript-eslint/eslint-plugin": "^6.8.0",
+        "@typescript-eslint/parser": "^6.8.0",
+        "eslint": "^8.51.0",
         "typescript": "5.2.2"
     }
 }
