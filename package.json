@@ -2,7 +2,7 @@
     "type": "module",
     "scripts": {
         "start": "node dist/src/index.js",
-        "lint": "eslint src",
+        "lint": "eslint src -c .eslintrc.json **/*.ts",
         "dev": "tsx src/index.ts",
         "build": "tsc"
     },
@@ -10,7 +10,7 @@
         "fastify": "^4.24.3"
     },
     "devDependencies": {
-        "@types/node": "^20.9.0",
+        "@types/node": "^20.9.1",
         "@typescript-eslint/eslint-plugin": "^6.11.0",
         "@typescript-eslint/parser": "^6.11.0",
         "eslint": "^8.53.0",
