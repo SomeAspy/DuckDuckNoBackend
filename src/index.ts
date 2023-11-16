@@ -4,8 +4,9 @@ const keys = (
     await import("../config/keys.json", {
         assert: { type: "json" },
     })
-).default;
+).default as Keys;
 import type { ApiResponse, DDNResult, Result } from "./types/results.js";
+import { Keys } from "./types/keys.js";
 
 const api = fastify();
 
