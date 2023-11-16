@@ -2,7 +2,7 @@ import fastify from "fastify";
 import type { StdQuery } from "./types/query.js";
 import type { Keys } from "./types/keys.js";
 import untypedKeys from "../config/keys.json";
-const keys: Keys = untypedKeys;
+const keys = untypedKeys as Keys;
 import type { ApiResponse, DDNResult, Result } from "./types/results.js";
 
 const api = fastify();
