@@ -1,6 +1,7 @@
 // The google CSE response is significantly more complex than this but we will only type the stuff we actually want to use
 
 export type ApiResponse = {
+    error?: { code: number; message: string };
     items: Result[];
 };
 

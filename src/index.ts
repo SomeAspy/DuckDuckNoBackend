@@ -1,9 +1,11 @@
 import fastify from "fastify";
 import type { StdQuery } from "./types/query.js";
-import untypedKeys from "../keys.json" assert { type: "json" };
-import type { Keys } from "./types/keys.js";
-import type { DDNResult, Result } from "./types/results.js";
-const keys = untypedKeys as Keys;
+const keys = (
+    await import("../config/keys.json", {
+        assert: { type: "json" },
+    })
+).default;
+import type { ApiResponse, DDNResult, Result } from "./types/results.js";
 
 const api = fastify();
 
@@ -34,25 +36,24 @@ api.route({
             });
             return;
         }
-
+        console.log(query.q);
         const url = encodeURI(
-            `https://www.googleapis.com/customsearch/v1?
-                ${new URLSearchParams({
+            "https://www.googleapis.com/customsearch/v1?" +
+                new URLSearchParams({
                     key: keys.key,
                     cx: keys.cx,
-                    q: query.q,
+                    q: query.q.toString(),
                     start: (query.p * 10).toString(),
                     fields: "items",
-                }).toString()}`,
+                }).toString(),
         );
 
-        // This is why the TS config contains DOM. See: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/60924
         await fetch(url, {
             headers: {
                 "User-Agent": "DDN-Backend (gzip compatible)",
             },
         })
-            .then((response) => response.json())
+            .then((response) => response.json() as unknown as ApiResponse)
             .then(async (data) => {
                 if (data.error) {
                     console.error(data.error);
@@ -62,7 +63,7 @@ api.route({
                     });
                     return;
                 }
-                data.items.forEach((item: Result) => {
+                data.items.forEach((item: Result): void => {
                     searchResults.results.push({
                         kind: item.kind,
                         title: item.title,
