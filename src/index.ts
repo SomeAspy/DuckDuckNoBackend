@@ -76,7 +76,7 @@ api.route({
                 });
                 await reply.send({
                     code: 200,
-                    data: searchResults.results,
+                    results: searchResults.results,
                 });
             });
     },
