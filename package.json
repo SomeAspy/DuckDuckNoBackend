@@ -17,6 +17,6 @@
         "typescript": "5.2.2"
     },
     "optionalDependencies": {
-        "tsx": "^4.1.2"
+        "tsx": "^4.1.4"
     }
 }
