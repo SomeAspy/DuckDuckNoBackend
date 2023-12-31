@@ -20,17 +20,12 @@
         "useUnknownInCatchVariables": true,
         "outDir": "dist",
         "target": "ESNext",
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "types": [],
         "esModuleInterop": true,
         "removeComments": true,
         "resolveJsonModule": true,
-        "plugins": [
-            {
-                "name": "typescript-eslint-language-service"
-            }
-        ],
         "lib": [
             "ESNext"
         ],
