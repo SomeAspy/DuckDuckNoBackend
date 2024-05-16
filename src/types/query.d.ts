@@ -1,4 +1,4 @@
-export type StdQuery = {
+export interface StdQuery {
     q: string;
     p: number;
-};
+}

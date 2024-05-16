@@ -1,11 +1,11 @@
 // The google CSE response is significantly more complex than this but we will only type the stuff we actually want to use
 
-export type ApiResponse = {
+export interface ApiResponse {
     error?: { code: number; message: string };
     items: Result[];
-};
+}
 
-export type Result = {
+export interface Result {
     kind: string;
     title: string;
     htmlTitle: string;
@@ -15,9 +15,9 @@ export type Result = {
     htmlSnippet: string;
     formattedUrl: string;
     htmlFormattedUrl: string;
-};
+}
 
-export type DDNResult = {
+export interface DDNResult {
     code: number;
     results: Result[];
-};
+}

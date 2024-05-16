@@ -2,21 +2,22 @@
     "type": "module",
     "scripts": {
         "start": "node dist/src/index.js",
-        "lint": "eslint src -c .eslintrc.json **/*.ts",
+        "lint": "eslint \"**/*.ts\" .",
         "dev": "tsx src/index.ts",
         "build": "tsc"
     },
     "dependencies": {
-        "fastify": "^4.26.2"
+        "@eslint/js": "^9.2.0",
+        "@types/eslint__js": "^8.42.3",
+        "fastify": "^4.27.0",
+        "typescript-eslint": "^7.9.0"
     },
     "devDependencies": {
-        "@types/node": "^20.11.30",
-        "@typescript-eslint/eslint-plugin": "^7.4.0",
-        "@typescript-eslint/parser": "^7.4.0",
-        "eslint": "^8.57.0",
-        "typescript": "5.4.3"
+        "@types/node": "^20.12.12",
+        "eslint": "^9.2.0",
+        "typescript": "5.4.5"
     },
     "optionalDependencies": {
-        "tsx": "^4.7.1"
+        "tsx": "^4.10.3"
     }
 }

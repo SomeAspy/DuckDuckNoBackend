@@ -57,7 +57,7 @@ api.route({
                     console.error(data.error);
                     await reply.send({
                         code: 500,
-                        message: `Upstream Error: GoogleApis returned code "${data.error.code}" with message: "${data.error.message}" Please open an issue at https://github.com/SomeAspy/DuckDuckNoBackend/issues/new`,
+                        message: `Upstream Error: GoogleApis returned code "${data.error.code.toString()}" with message: "${data.error.message}" Please open an issue at https://github.com/SomeAspy/DuckDuckNoBackend/issues/new`,
                     });
                     return;
                 }
