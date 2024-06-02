@@ -7,17 +7,18 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@eslint/js": "^9.3.0",
+        "@eslint/js": "^9.4.0",
         "@types/eslint__js": "^8.42.3",
         "fastify": "^4.27.0",
-        "typescript-eslint": "^7.9.0"
+        "typescript-eslint": "^7.11.0"
     },
     "devDependencies": {
-        "@types/node": "^20.12.12",
-        "eslint": "^9.3.0",
+        "@types/node": "^20.13.0",
+        "eslint": "^9.4.0",
         "typescript": "5.4.5"
     },
     "optionalDependencies": {
-        "tsx": "^4.10.5"
-    }
+        "tsx": "^4.11.0"
+    },
+    "packageManager": "pnpm@9.1.4+sha512.9df9cf27c91715646c7d675d1c9c8e41f6fce88246f1318c1aa6a1ed1aeb3c4f032fcdf4ba63cc69c4fe6d634279176b5358727d8f2cc1e65b65f43ce2f8bfb0"
 }
