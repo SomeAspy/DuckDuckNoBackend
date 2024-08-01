@@ -22,8 +22,8 @@ importers:
         version: 7.15.0(eslint@9.6.0)(typescript@5.5.3)
     optionalDependencies:
       tsx:
-        specifier: ^4.16.0
-        version: 4.16.0
+        specifier: ^4.16.5
+        version: 4.16.5
     devDependencies:
       '@types/node':
         specifier: ^20.14.9
@@ -852,8 +852,8 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
-  tsx@4.16.0:
-    resolution: {integrity: sha512-MPgN+CuY+4iKxGoJNPv+1pyo5YWZAQ5XfsyobUG+zoKG7IkvCPLZDEyoIb8yLS2FcWci1nlxAqmvPlFWD5AFiQ==}
+  tsx@4.16.5:
+    resolution: {integrity: sha512-ArsiAQHEW2iGaqZ8fTA1nX0a+lN5mNTyuGRRO6OW3H/Yno1y9/t1f9YOI1Cfoqz63VAthn++ZYcbDP7jPflc+A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -1687,7 +1687,7 @@ snapshots:
     dependencies:
       typescript: 5.5.3
 
-  tsx@4.16.0:
+  tsx@4.16.5:
     dependencies:
       esbuild: 0.21.5
       get-tsconfig: 4.7.5
