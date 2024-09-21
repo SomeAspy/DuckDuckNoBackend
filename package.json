@@ -1,24 +1,19 @@
 {
-    "type": "module",
-    "scripts": {
-        "start": "node dist/src/index.js",
-        "lint": "eslint \"**/*.ts\" .",
-        "dev": "tsx src/index.ts",
-        "build": "tsc"
-    },
-    "dependencies": {
-        "@eslint/js": "^9.4.0",
-        "@types/eslint__js": "^8.42.3",
-        "fastify": "^4.27.0",
-        "typescript-eslint": "^7.11.0"
-    },
-    "devDependencies": {
-        "@types/node": "^20.13.0",
-        "eslint": "^9.4.0",
-        "typescript": "5.4.5"
-    },
-    "optionalDependencies": {
-        "tsx": "^4.11.0"
-    },
-    "packageManager": "pnpm@9.1.4+sha512.9df9cf27c91715646c7d675d1c9c8e41f6fce88246f1318c1aa6a1ed1aeb3c4f032fcdf4ba63cc69c4fe6d634279176b5358727d8f2cc1e65b65f43ce2f8bfb0"
+	"type": "module",
+	"scripts": {
+		"start": "node dist/src/index.js --env-file .env src/index.ts",
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
+		"dev": "node --experimental-strip-types --env-file .env src/index.ts",
+		"build": "tsc"
+	},
+	"dependencies": {
+		"fastify": "^5.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.2",
+		"@types/node": "^22.5.5",
+		"typescript": "5.6.2"
+	},
+	"packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
 }
