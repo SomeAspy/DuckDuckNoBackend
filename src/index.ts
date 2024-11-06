@@ -33,7 +33,7 @@ api.get("/search", {
 			});
 			return;
 		}
-		console.log(query.q);
+		console.log(`${Date.now()}: ${query.q}`);
 		const url = encodeURI(
 			`https://www.googleapis.com/customsearch/v1?${new URLSearchParams({
 				key: process.env["KEY"]!,
