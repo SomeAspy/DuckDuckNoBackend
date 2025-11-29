@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "DuckDuckNoAPI",
       script: "dist/src/index.js",
-      env_file: ".env",
+      node_args: "--env-file .env"
     },
   ],
 };

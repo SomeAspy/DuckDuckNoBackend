@@ -80,4 +80,4 @@ api.get("/search", {
 	},
 });
 
-await api.listen({ port: 4444 });
+await api.listen({ port: 4444, host: "0.0.0.0" });
